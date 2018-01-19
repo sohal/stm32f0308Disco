@@ -5,7 +5,7 @@
 #include "diag/Trace.h"
 
 #include "Timer.h"
-#include "BlinkLed.h"
+#include "led.h"
 
 
 // ----- Timing definitions -------------------------------------------------
@@ -26,17 +26,19 @@
 int
 main(int argc, char* argv[])
 {
+  
+  led_Init(BLUE);
+  led_Init(GREEN);
+  // Infinite loop
   timer_start();
 
-  blink_led_init();
-  
-  // Infinite loop
   while (1)
     {
-      blink_led_on();
+	  led_ON(GREEN);
+	  led_OFF(BLUE);
       timer_sleep(BLINK_ON_TICKS);
-
-      blink_led_off();
+      led_OFF(GREEN);
+      led_ON(BLUE);
       timer_sleep(BLINK_OFF_TICKS);
     }
   // Infinite loop, never return.
