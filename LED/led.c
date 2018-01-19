@@ -23,8 +23,8 @@ uint32_t led_Init(LEDColorType LED)
 			led_GPIOTypedef.GPIO_Pin = BLUE_LED;
 		}else
 		{
-//			GPIOx = RED_LED_PORT;
-//			led_GPIOTypedef.GPIO_Pin = RED_LED;
+			GPIOx = RED_LED_PORT;
+			led_GPIOTypedef.GPIO_Pin = RED_LED;
 		}
 	}
 
@@ -55,8 +55,8 @@ uint32_t led_ON(LEDColorType LED)
 			pinNumber = BLUE_LED;
 		}else
 		{
-//			GPIOx = RED_LED_PORT;
-//			led_GPIOTypedef.GPIO_Pin = RED_LED;
+			GPIOx = RED_LED_PORT;
+			pinNumber = RED_LED;
 		}
 	}
 
@@ -81,8 +81,8 @@ uint32_t led_OFF(LEDColorType LED)
 			pinNumber = BLUE_LED;
 		}else
 		{
-//			GPIOx = RED_LED_PORT;
-//			led_GPIOTypedef.GPIO_Pin = RED_LED;
+			GPIOx = RED_LED_PORT;
+			pinNumber = RED_LED;
 		}
 	}
 	GPIO_ResetBits(GPIOx,pinNumber);

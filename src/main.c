@@ -6,7 +6,7 @@
 
 #include "Timer.h"
 #include "led.h"
-
+#include "usart1.h"
 
 // ----- Timing definitions -------------------------------------------------
 
@@ -26,22 +26,28 @@
 int
 main(int argc, char* argv[])
 {
-  
-  led_Init(BLUE);
-  led_Init(GREEN);
-  // Infinite loop
-  timer_start();
+	led_Init(BLUE);
+	led_Init(GREEN);
+	led_Init(RED);
+//	usart1_Init();
+	// Infinite loop
+	timer_start();
 
-  while (1)
-    {
-	  led_ON(GREEN);
-	  led_OFF(BLUE);
-      timer_sleep(BLINK_ON_TICKS);
-      led_OFF(GREEN);
-      led_ON(BLUE);
-      timer_sleep(BLINK_OFF_TICKS);
-    }
-  // Infinite loop, never return.
+//	uint8_t hi[] = "hello";
+//	usart1_Tx(hi, sizeof(hi));
+
+	while (1)
+	{
+		led_ON(GREEN);
+		led_OFF(BLUE);
+		led_OFF(RED);
+		timer_sleep(BLINK_ON_TICKS);
+		led_OFF(GREEN);
+		led_ON(BLUE);
+		led_ON(RED);
+		timer_sleep(BLINK_OFF_TICKS);
+	}
+	// Infinite loop, never return.
 }
 
 #pragma GCC diagnostic pop

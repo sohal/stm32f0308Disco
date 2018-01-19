@@ -14,11 +14,11 @@
 
 #define GREEN_LED_PORT	GPIOC
 #define BLUE_LED_PORT	GPIOC
-#define RED_LED_PORT	GPIOC
+#define RED_LED_PORT	GPIOA
 
 #define GREEN_LED		GPIO_Pin_9
 #define BLUE_LED		GPIO_Pin_8
-
+#define RED_LED			GPIO_Pin_1
 typedef enum {
 	GREEN,
 	BLUE,
